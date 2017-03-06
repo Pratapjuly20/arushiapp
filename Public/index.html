@@ -1,0 +1,22 @@
+<html ng-app="firstapp">
+    <head>
+        <title>First todo app</title>
+        
+    </head>
+    <body ng-controller="maincontroller">
+        <div>
+            <h2>Todo List</h2>{{ todos['data'].length }}
+        </div>
+        <div>
+            <ul ng-repeat="todo in todos['data']">
+                <input type="checkbox" ng-click="deletetodo(todo._id)"/>{{ todo.text }}
+            </ul>
+        </div>
+        <form name="todoform">
+            <input type="text" name="todo" ng-model="formdata.text" required/>
+            <button type="submit" ng-click="createtodo()" ng-disabled="todoform.$invalid">Add</button>
+        </form>
+       <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+       <script type="text/javascript" src="core.js"></script>
+    </body>
+</html>
